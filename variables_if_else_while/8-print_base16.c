@@ -12,7 +12,7 @@ for (num = 0; num < 10; num++)
 {
 putchar(num + '0');
 }
-for (num 10; num < 16; num++)
+for (num = 10; num < 16; num++)
 {
 putchar(num - 10 + 'a');
 }
