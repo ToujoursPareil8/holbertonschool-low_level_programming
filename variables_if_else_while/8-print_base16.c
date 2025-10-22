@@ -8,11 +8,12 @@
 int main(void)
 {
 int num;
-for (num = 0; num <= 15; num++);
+for (num = 0; num < 10; num++)
 {
-if (num < 10)
 putchar(num + '0');
-else
+}
+for (num 10; num < 16; num++)
+{
 putchar(num - 10 + 'a');
 }
 putchar('\n');
