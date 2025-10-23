@@ -3,13 +3,13 @@
 #include "main.h"
 
 /**
- * main - print _putchar to stdout
+ * main - print _putchar, followed by a new line
  *
  * Return always 0
  */
 
-int main (void)
+int main(void)
 {
-write(1,"_putchar\n", 9);
+write(1, "_putchar\n", 9);
 return (0);
 }
