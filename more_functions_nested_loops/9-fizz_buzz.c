@@ -19,7 +19,7 @@ printf("Buzz");
 else
 printf("%d", i);
 if (i != 100)
-printf(" ");  // espace entre les éléments
+printf(" ");
 }
 printf("\n");
 return (0);
