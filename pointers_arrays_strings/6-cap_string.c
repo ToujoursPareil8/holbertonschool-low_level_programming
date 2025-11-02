@@ -9,15 +9,11 @@
 char *cap_string(char *s)
 {
     int i = 0, j;
-    char sep[] = " \t\n,;.!?\"(){}";
-
-    // 1️⃣ Go through each character
+    char sep[] = " \t\n,;.!?\"(){}";    
     while (s[i] != '\0')
     {
-        // 2️⃣ If first letter or after a separator
         if (i == 0 || strchr(sep, s[i - 1]))
         {
-            // 3️⃣ If lowercase letter, make it uppercase
         if (s[i] >= 'a' && s[i] <= 'z')
         s[i] -= 32;
         }

@@ -8,8 +8,6 @@
 void reverse_array(int *a, int n)
 {
     int i, temp;
-
-    // 1️⃣ Swap from both ends moving toward the center
     for (i = 0; i < n / 2; i++)
     {
     temp = a[i];
