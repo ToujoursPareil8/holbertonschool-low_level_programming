@@ -13,7 +13,6 @@ char *cap_string(char *s)
 
     for (i = 0; s[i] != '\0'; i++)
     {
-        // 1️⃣ Always check if current character starts a word
         if (i == 0)
         {
             if (s[i] >= 'a' && s[i] <= 'z')
@@ -21,7 +20,6 @@ char *cap_string(char *s)
         }
         else
         {
-            // 2️⃣ Check if the previous char was a separator
             for (j = 0; sep[j] != '\0'; j++)
             {
                 if (s[i - 1] == sep[j] && s[i] >= 'a' && s[i] <= 'z')
