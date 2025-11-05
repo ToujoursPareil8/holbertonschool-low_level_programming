@@ -7,7 +7,7 @@
  * or NULL if no such byte is found
  */
 
- char *_strpbrk (char *s, char *accept)
+ char *_strpbrk(char *s, char *accept)
  {
     char *a;
 
@@ -16,7 +16,10 @@
         for ( a=accept; *a != '\0'; a++)
         {
             if (*s == *a)
-            return (s);
+            {
+                return (s);
+            }
+            
 
         }
     }
