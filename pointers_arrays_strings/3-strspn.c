@@ -12,10 +12,10 @@ unsigned int _strspn(char *s, char *accept)
 {
     unsigned int count = 0;
     char *a;
-    
-    for(; *s, s++;)
+
+    for(; *s; s++)
     {
-        for (char a=accept; *a, a++;)
+        for (a=accept; *a; a++)
         {
             if (*s == *a)
             {
@@ -25,7 +25,6 @@ unsigned int _strspn(char *s, char *accept)
         }
     if ( *a == '\0' )
     break;
-
-    return (count);
     }
+    return (count);
 }
