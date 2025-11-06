@@ -7,8 +7,7 @@
  *
  * Return: 1 if prime, 0 otherwise
  */
-
-check_prime(n, i)
+check_prime(int n, int i)
 {
     if (i * i > n)
     {
