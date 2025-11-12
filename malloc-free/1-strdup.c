@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "main.h"
 
 /**
  * _strdup - returns a pointer to a newly allocated copy of a string
@@ -7,11 +8,11 @@
  *
  * Return: pointer to duplicated string, or NULL if str is NULL or malloc fails
  */
-char *_stdup(char*str)
+char *_strdup(char*str)
 {
     char *dup;
 
-    if (str == dup)
+    if (str == NULL)
     {
         return(NULL);
     }
