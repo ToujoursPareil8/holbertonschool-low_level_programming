@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "main.h"
 /**
 * str_concat - concatenates two strings into a newly allocated space
 * @s1: first string
