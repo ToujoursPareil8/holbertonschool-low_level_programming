@@ -1,37 +1,42 @@
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * string_nconcat - concatenates s1 with first n bytes of s2
+ * string_nconcat - concatenates two strings
  * @s1: first string
  * @s2: second string
  * @n: number of bytes from s2 to concatenate
  *
- * Return: pointer to new string, or NULL if malloc fails
+ * Return: pointer to newly allocated memory containing s1 + first n bytes of s2,
+ * or NULL if allocation fails
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-char *ptr;
-unsigned int len1, len2, total_size;
+    unsigned int i, j, len1 = 0, len2 = 0;
+    char *ptr;
 
-if (s1 == NULL)
-s1 = "";
-if (s2 == NULL)
-s2 = "";
+    if (s1 == NULL)
+        s1 = "";
+    if (s2 == NULL)
+        s2 = "";
 
-len1 = strlen(s1);
-len2 = strlen(s2);
+    while (s1[len1])
+        len1++;
+    while (s2[len2])
+        len2++;
 
-if (n > len2)
-n = len2;
+    if (n >= len2)
+        n = len2;
 
-total_size = len1 + n + 1;
-ptr = malloc(total_size);
-if (ptr == NULL)
-return (NULL);
+    ptr = malloc(sizeof(char) * (len1 + n + 1));
+    if (ptr == NULL)
+        return (NULL);
+    for (i = 0; i < len1; i++)
+        ptr[i] = s1[i];
 
-strcpy(ptr, s1);
-strncpy(ptr + len1, s2, n);
-ptr[len1 + n] = '\0';
-return (ptr);
+    for (j = 0; j < n; j++)
+        ptr[i + j] = s2[j];
+
+    ptr[i + j] = '\0';
+
+    return (ptr);
 }
