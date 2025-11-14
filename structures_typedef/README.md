@@ -1,2 +1,2 @@
 # holbertonschool-low_level_programming
-READ me
+C structures and typedef (bonus dog)
