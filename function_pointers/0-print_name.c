@@ -1,9 +1,10 @@
 #include "function_pointers.h"
+#include <stdlib.h>
 
 /**
-* print_name - prints a name using a callback
-* @name: string to print
-* @f: function pointer used to print
+* print_name - prints a name using function pointer
+* @name: name to print
+* @f: pointer to a function that takes a char* and returns nothing
 *
 * Return: void
 */
