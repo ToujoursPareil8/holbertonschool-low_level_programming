@@ -1,0 +1,1 @@
+Variadic functions, trying to understand
