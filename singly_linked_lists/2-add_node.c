@@ -1,51 +1,43 @@
-#include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
-  * add_node - Adds a new node at the beginning of a list
-  * @head: The original linked list
-  * @str: The string to add to the node
-  *
-  * Return: The address of the new list or NULL if it failed
-  */
+ * add_node - Adds a new node at the beginning of a list_t list
+ * @head: A pointer to the pointer of the head of the list
+ * @str: The string to be added to the new node
+ *
+ * Return: The address of the new element, or NULL if it failed
+ */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *temp;
+	list_t *new_node;
+	unsigned int len = 0;
 
-	if (head != NULL && str != NULL)
+	/* Calcul de la longueur de la chaine */
+	while (str[len])
+		len++;
+
+	/* 1. Allocation de mémoire pour le nouveau nœud */
+	new_node = malloc(sizeof(list_t));
+	if (new_node == NULL)
+		return (NULL);
+
+	/* 2. Duplication de la chaine et assignation de la longueur */
+	new_node->str = strdup(str);
+	new_node->len = len;
+
+	/* Vérification si strdup a échoué */
+	if (new_node->str == NULL)
 	{
-		temp = malloc(sizeof(list_t));
-		if (temp == NULL)
-			return (NULL);
-
-		temp->str = strdup(str);
-		temp->len = _strlen(str);
-		temp->next = *head;
-
-		*head = temp;
-
-		return (temp);
+		free(new_node);
+		return (NULL);
 	}
 
-	return (0);
-}
+	/* 3. Mise en place des liens (Insertion en tête) */
+	/* Le next du nouveau nœud pointe vers l'ancienne tête */
+	new_node->next = *head;
 
-/**
-  * _strlen - Returns the length of a string
-  * @s: String to count
-  *
-  * Return: String length
-  */
-int _strlen(const char *s)
-{
-	int c = 0;
+	/* La tête pointe maintenant vers le nouveau nœud */
+	*head = new_node;
 
-	while (*s)
-	{
-		s++;
-		c++;
-	}
-
-	return (c);
+	return (new_node);
 }
