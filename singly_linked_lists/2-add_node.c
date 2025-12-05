@@ -1,43 +1,36 @@
 #include "lists.h"
 
 /**
- * add_node - Adds a new node at the beginning of a list_t list
- * @head: A pointer to the pointer of the head of the list
- * @str: The string to be added to the new node
+ * add_node - ajoute un nouveau noeud au début d'une liste list_t
+ * @head: adresse du pointeur vers le premier élément de la liste
+ * @str: chaîne à dupliquer pour le nouveau noeud
  *
- * Return: The address of the new element, or NULL if it failed
+ * Return: adresse du nouveau noeud, ou NULL en cas d'échec
  */
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new_node;
 	unsigned int len = 0;
 
-	/* Calcul de la longueur de la chaine */
-	while (str[len])
-		len++;
-
-	/* 1. Allocation de mémoire pour le nouveau nœud */
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
 		return (NULL);
 
-	/* 2. Duplication de la chaine et assignation de la longueur */
+	/* duplique la string */
 	new_node->str = strdup(str);
-	new_node->len = len;
-
-	/* Vérification si strdup a échoué */
 	if (new_node->str == NULL)
 	{
 		free(new_node);
 		return (NULL);
 	}
 
-	/* 3. Mise en place des liens (Insertion en tête) */
-	/* Le next du nouveau nœud pointe vers l'ancienne tête */
-	new_node->next = *head;
+	/* calcule la longueur */
+	while (str[len] != '\0')
+		len++;
 
-	/* La tête pointe maintenant vers le nouveau nœud */
-	*head = new_node;
+	new_node->len = len;
+	new_node->next = *head; /* l'ancien head devient le next */
+	*head = new_node;       /* le nouveau devient le head */
 
 	return (new_node);
 }
